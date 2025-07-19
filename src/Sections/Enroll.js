@@ -49,7 +49,7 @@ const Enroll = () => {
             <input
               type="text"
               placeholder="Full name"
-              className="w-full px-4 py-2 border border-gray-300 rounded-3xl focus:outline-none focus:ring-2 focus:ring-[#8D3C44]"
+              className="w-full px-4 py-2 border border-gray-300 rounded-3xl focus:outline-none focus:ring-2 focus:ring-[#1e2a50]"
             />
           </div>
 
@@ -59,7 +59,7 @@ const Enroll = () => {
             <input
               type="email"
               placeholder="contact@email.com"
-              className="w-full px-4 py-2 border border-gray-300 rounded-3xl focus:outline-none focus:ring-2 focus:ring-[#8D3C44]"
+              className="w-full px-4 py-2 border border-gray-300 rounded-3xl focus:outline-none focus:ring-2 focus:ring-[#1e2a50]"
             />
           </div>
 
@@ -69,12 +69,12 @@ const Enroll = () => {
             <input
               type="tel"
               placeholder="Enter your Phone Number"
-              className="w-full px-4 py-2 border border-gray-300 rounded-3xl focus:outline-none focus:ring-2 focus:ring-[#8D3C44]"
+              className="w-full px-4 py-2 border border-gray-300 rounded-3xl focus:outline-none focus:ring-2 focus:ring-[#1e2a50]"
             />
           </div>
 
           {/* Submit Button */}
-          <button className="w-full py-3 bg-[#8D3C44] text-white text-lg font-semibold rounded-3xl transition duration-300 hover:bg-[rgba(141,60,68,0.5)]">
+          <button className="w-full py-3 bg-[#1e2a50] text-white text-lg font-semibold rounded-3xl transition duration-300 hover:bg-[#233f9a]">
             Submit
           </button>
         </form>

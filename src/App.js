@@ -35,9 +35,9 @@ function App() {
           element={
             <>
               <Display />
+              <Certification />
               <PrincipalDesk />
               <PresidentMessage />
-              <Certification />
               <Shaping />
               <KeyInformation />
               <Campus />

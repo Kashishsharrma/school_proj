@@ -3,7 +3,7 @@ import { FaYoutube, FaInstagram, FaFacebook } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#8D3C44] text-white py-16 px-10">
+    <footer className="bg-[#1e2a50] text-white py-16 px-10">
       <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
         
         {/* Email Subscription Section */}

@@ -1,75 +1,127 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { GiPlantSeed, GiMaterialsScience } from "react-icons/gi";
-import { SlChemistry } from "react-icons/sl";
-import { IoLibraryOutline, IoMusicalNotesSharp } from "react-icons/io5";
-import { PiHandsPrayingFill, PiProjectorScreen } from "react-icons/pi";
-import { FaComputer } from "react-icons/fa6";
+import { LuMicroscope } from "react-icons/lu";
+import { PiTestTubeBold, PiBookOpenText, PiMusicNotesBold } from "react-icons/pi";
+import { TbAtom } from "react-icons/tb";
+import { RxDesktop } from "react-icons/rx";
+import { LuMonitorSmartphone } from "react-icons/lu";
+import { GiSoccerBall } from "react-icons/gi"; // ✅ New Icon
 
 const academicsData = [
-  { title: "Biology Lab", path: "/academics/biology-lab", icon: <GiPlantSeed className="w-16 h-16 md:w-20 md:h-20 mb-4 text-[#8D3C44]" /> },
-  { title: "Chemistry Lab", path: "/academics/chemistry-lab", icon: <SlChemistry className="w-16 h-16 md:w-20 md:h-20 mb-4 text-[#8D3C44]" /> },
-  { title: "School Library", path: "/academics/library", icon: <IoLibraryOutline className="w-16 h-16 md:w-20 md:h-20 mb-4 text-[#8D3C44]" /> },
-  { title: "Physics Lab", path: "/academics/physics-lab", icon: <GiMaterialsScience className="w-16 h-16 md:w-20 md:h-20 mb-4 text-[#8D3C44]" /> },
-  { title: "Prayer Room", path: "/academics/prayer-room", icon: <PiHandsPrayingFill className="w-16 h-16 md:w-20 md:h-20 mb-4 text-[#8D3C44]" /> },
-  { title: "Computer Lab", path: "/academics/computer-lab", icon: <FaComputer className="w-16 h-16 md:w-20 md:h-20 mb-4 text-[#8D3C44]" /> },
-  { title: "Smart Classes", path: "/academics/smart-class", icon: <PiProjectorScreen className="w-16 h-16 md:w-20 md:h-20 mb-4 text-[#8D3C44]" /> },
-  { title: "Music Room", path: "/academics/music-room", icon: <IoMusicalNotesSharp className="w-16 h-16 md:w-20 md:h-20 mb-4 text-[#8D3C44]" /> },
+  {
+    title: "Biology Lab",
+    description:
+      "State-of-the-art biology laboratory for hands-on learning and experiments.",
+    path: "/academics/biology-lab",
+    icon: <LuMicroscope size={26} />,
+    iconBg: "bg-gray-100",
+    iconColor: "text-green-600",
+  },
+  {
+    title: "Chemistry Lab",
+    description:
+      "Well-equipped chemistry laboratory with safety protocols and advanced instruments.",
+    path: "/academics/chemistry-lab",
+    icon: <PiTestTubeBold size={26} />,
+    iconBg: "bg-gray-100",
+    iconColor: "text-blue-600",
+  },
+  {
+    title: "School Library",
+    description:
+      "Extensive collection of books, digital resources, and quiet study spaces for research.",
+    path: "/academics/library",
+    icon: <PiBookOpenText size={26} />,
+    iconBg: "bg-gray-100",
+    iconColor: "text-purple-600",
+  },
+  {
+    title: "Physics Lab",
+    description:
+      "Modern physics laboratory with equipment for practical demonstrations and experiments.",
+    path: "/academics/physics-lab",
+    icon: <TbAtom size={26} />,
+    iconBg: "bg-gray-100",
+    iconColor: "text-orange-600",
+  },
+  {
+    title: "Sports Activities",
+    description:
+      "Active sports programs promoting physical fitness, teamwork, and discipline.",
+    path: "/academics/sports",
+    icon: <GiSoccerBall size={26} />,
+    iconBg: "bg-gray-100",
+    iconColor: "text-lime-600",
+  },
+  {
+    title: "Computer Lab",
+    description:
+      "Up-to-date computer lab with high-speed internet and modern systems for digital learning.",
+    path: "/academics/computer-lab",
+    icon: <RxDesktop size={26} />,
+    iconBg: "bg-gray-100",
+    iconColor: "text-blue-700",
+  },
+  {
+    title: "Smart Classes",
+    description:
+      "Technology-integrated classrooms enabling interactive and modern teaching methods.",
+    path: "/academics/smart-class",
+    icon: <LuMonitorSmartphone size={26} />,
+    iconBg: "bg-gray-100",
+    iconColor: "text-red-600",
+  },
+  {
+    title: "Music Room",
+    description:
+      "Dedicated space for musical learning and practice with instruments and audio tools.",
+    path: "/academics/music-room",
+    icon: <PiMusicNotesBold size={26} />,
+    iconBg: "bg-gray-100",
+    iconColor: "text-pink-600",
+  },
 ];
 
 const Academics = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="w-full min-h-screen flex flex-col items-start justify-center px-16 py-10">
-      {/* Hero Heading Section */}
-      <div className="mb-8 mt-[80px] w-full">
-        <h1 className="text-4xl text-center mx-auto text-black mt-4 mb-4">
-          Redefining Excellence: Our Journey Beyond the Ordinary
-        </h1>
-        <p className="text-lg text-black mx-auto p-4 leading-relaxed max-w-4xl font-medium">
-          At <strong>Galaxy Star Public School</strong>, we’ve never been content with just meeting expectations — we strive to
-          set new standards. Our legacy is built on challenging the norm, pushing boundaries, and
-          fostering a culture that embraces innovation, integrity, and inspiration.
-          <br />
-          <br />
-          From humble beginnings, we have grown into an institution that consistently
-          raises the bar in education, not just in terms of academic results, but in cultivating
-          well-rounded, confident, and compassionate individuals.
-          <br />
-          <br />
-          At Galaxy Star, we don’t just teach — we transform. And that transformation begins the moment we choose to
-          rise above mediocrity and reach for the stars.
-        </p>
-      </div>
-
-      {/* Subheading */}
-      <div className="mb-8 w-full">
-        <h2 className="text-4xl text-center mx-auto text-black mt-6 font-bold">Your Future Begins Here</h2>
-        <p className="text-lg text-center mx-auto font-medium text-black mt-2">
-          Explore all our facilities, we have to offer
-        </p>
-      </div>
-
-      {/* Cards Section */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full">
+    <div className="w-full min-h-screen px-6 md:px-20 py-16 bg-white mt-[70px]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {academicsData.map((item, index) => (
           <div
             key={index}
-            className="p-10 h-72 flex flex-col justify-center items-center border-2 border-black rounded-2xl 
-            shadow-lg text-center transition-all duration-300 hover:bg-[rgba(141,60,68,0.5)] hover:text-[#8D3C44] cursor-pointer"
             onClick={() => navigate(item.path)}
+            className="bg-white border rounded-xl shadow-sm p-6 hover:shadow-md transition cursor-pointer"
           >
             {/* Icon */}
-            {item.icon}
+            <div className="flex justify-center mb-4">
+              <div
+                className={`w-16 h-16 flex items-center justify-center rounded-full ${item.iconBg}`}
+              >
+                <div className={`text-3xl ${item.iconColor}`}>{item.icon}</div>
+              </div>
+            </div>
 
             {/* Title */}
-            <h2 className="text-2xl font-semibold">{item.title}</h2>
+            <h3 className="text-xl font-semibold text-center text-black mb-2">
+              {item.title}
+            </h3>
 
-            {/* Learn More Link */}
-            <p className="mt-6 text-base font-medium">
-              <span className="underline">Learn More →</span>
+            {/* Description */}
+            <p className="text-gray-600 text-sm text-center mb-4">
+              {item.description}
             </p>
+
+            {/* Button */}
+            <div className="text-center">
+              <button
+                onClick={() => navigate(item.path)}
+                className="text-sm font-semibold text-black hover:text-indigo-700 transition flex items-center gap-1 mx-auto"
+              >
+                Learn more <span className="text-lg">→</span>
+              </button>
+            </div>
           </div>
         ))}
       </div>

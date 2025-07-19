@@ -6,6 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
+              lato: ['Lato', 'sans-serif'],
         gloock: ['Gloock', 'serif'],
         haviland: ['Mr De Haviland', 'cursive'],
         poppins: ['Poppins', 'sans-serif'],

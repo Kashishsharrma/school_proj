@@ -3,72 +3,84 @@ import { SlBadge } from "react-icons/sl";
 import { GoTrophy } from "react-icons/go";
 import { LuSchool } from "react-icons/lu";
 import { FaRankingStar } from "react-icons/fa6";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const Certification = () => {
   const stats = [
-    { icon: <SlBadge size={70} className="text-[#8D3C44] " />, number: "12+", text: "Years of Excellence", bgColor: "rgba(255, 163, 189, 0.5)" },
-    { icon: <GoTrophy size={70} className="text-white" />, number: "100%", text: "Satisfied Parents", bgColor: "#8D3C44" },
-    { icon: <LuSchool size={70} className="text-[#8D3C44]" />, number: "50+", text: "Certified Teachers", bgColor:"rgba(255, 163, 189, 0.5)" },
-    { icon: <FaRankingStar size={70} className="text-white" />, number: "100%", text: "Unblemished Scores", bgColor: "#8D3C44" },
+    {
+      icon: <SlBadge size={30} />,
+      number: "12+",
+      text: "Years of Excellence",
+      iconBg: "bg-[#e7ecf4]",
+      iconColor: "text-[#0c2c34]",
+      textColor: "text-[#0c2c34]",
+    },
+    {
+      icon: <GoTrophy size={30} />,
+      number: "100%",
+      text: "Satisfied Parents",
+      iconBg: "bg-[#f3ecfc]",
+      iconColor: "text-[#7c3aed]",
+      textColor: "text-[#7c3aed]",
+    },
+    {
+      icon: <LuSchool size={30} />,
+      number: "50+",
+      text: "Certified Teachers",
+      iconBg: "bg-[#e9f0fe]",
+      iconColor: "text-[#2563eb]",
+      textColor: "text-[#2563eb]",
+    },
+    {
+      icon: <FaRankingStar size={30} />,
+      number: "100%",
+      text: "Unblemished Scores",
+      iconBg: "bg-[#e6f6ec]",
+      iconColor: "text-[#16a34a]",
+      textColor: "text-[#16a34a]",
+    },
   ];
 
   return (
-    <>
-      {/* Header Section - Now Fully Responsive */}
-      <div className="w-full flex flex-col md:flex-row items-center my-16 px-8 text-center md:text-left">
-        <h2 className="text-4xl font-bold w-full md:w-1/2 mb-4 md:mb-0">
-          Explore Our Diverse Range of Academic Facilities
-        </h2>
-        <div className="w-full md:w-1/2 p-4 md:p-8">
-          <p className="text-lg leading-relaxed font-poppins font-extralight">
-            At Galaxy Star Public School, we pride ourselves on providing a diverse range of facilities designed to enhance the educational experience for every student. From well-equipped classrooms and specialized laboratories to creative spaces for arts and music, our campus fosters a holistic learning environment.
-          </p>
-          <Link to="/academics">
-            <button className="bg-white text-[#8D3C44] px-6 py-3 rounded-full text-lg font-semibold mt-4 
-              border-2 border-[#8D3C44] transition-all duration-300 
-              hover:bg-[#8D3C44] hover:text-white">
-              Read More
-            </button>
-          </Link>
-        </div>
+    <div className="bg-[#f9fafb] py-16">
+      {/* Title Section */}
+      <div className="text-center mb-12 px-4">
+        <h2 className="text-4xl font-bold text-[#0c0c0c]">Our Achievements</h2>
+        <p className="text-[#64748b] mt-4 text-lg max-w-2xl mx-auto">
+          Over the years, Galaxy Star Public School has maintained excellence in education and continues
+          to be a trusted choice for parents and students.
+        </p>
       </div>
 
-      {/* Stats Cards with Animation */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-8 mt-8">
+      {/* Stats Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-6 max-w-7xl mx-auto">
         {stats.map((item, index) => (
           <motion.div
             key={index}
-            className="p-8 rounded-2xl text-center shadow-lg flex flex-col items-center"
-            style={{ backgroundColor: item.bgColor }}
-            initial={{ opacity: 0, y: 50 }}
+            className="p-6 bg-white border rounded-xl shadow-sm hover:shadow-md transition text-center"
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: index * 0.2, ease: "easeOut" }}
-            viewport={{ once: false, amount: 0.2 }} // Ensures re-triggering on every view
+            transition={{ duration: 0.6, delay: index * 0.2 }}
+            viewport={{ once: true }}
           >
-            {/* Icon at the Top with Hover Zoom Effect */}
-            <motion.div 
-              className="mb-4"
-              whileHover={{ scale: 1.2 }}
-              transition={{ duration: 0.3 }}
+            {/* Icon */}
+            <div
+              className={`w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full ${item.iconBg}`}
             >
-              {item.icon}
-            </motion.div>
+              <div className={`${item.iconColor}`}>{item.icon}</div>
+            </div>
 
-            {/* Number with Larger Font */}
-            <div className={`text-4xl font-semibold mb-2 ${item.bgColor === "#8D3C44" ? "text-white" : "text-[#8D3C44]"}`}>
+            {/* Number */}
+            <div className={`text-3xl font-bold mb-1 ${item.textColor}`}>
               {item.number}
             </div>
 
-            {/* Text Below */}
-            <p className={`text-lg font-semibold ${item.bgColor === "#8D3C44" ? "text-white" : "text-[#8D3C44]"}`}>
-              {item.text}
-            </p>
+            {/* Description */}
+            <p className="text-gray-600 text-sm">{item.text}</p>
           </motion.div>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 
