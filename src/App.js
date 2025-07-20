@@ -30,8 +30,7 @@ import SmartClass from "./SubSections/Smart";
 import Books from "./InformationData/Books";
 import Campusinfo from "./InformationData/Campusinfo";
 import Faculty from "./InformationData/Faculty";
-import Fee from "./InformationData/Fee";
-import Timing from "./InformationData/Timing";
+import AcademicCalendar from "./InformationData/AcademicCalendar";
 import Transport from "./InformationData/Transport";
 import Uniform from "./InformationData/Uniform";
 
@@ -78,9 +77,8 @@ function App() {
           <Route path="/information/books" element={<Books />} />
           <Route path="/information/campus-info" element={<Campusinfo />} />
           <Route path="/information/faculty" element={<Faculty />} />
-          <Route path="/information/timing" element={<Timing />} />
           <Route path="/information/transport" element={<Transport />} />
-          <Route path="/information/fee" element={<Fee />} />
+          <Route path="/information/calendar" element={<AcademicCalendar />} />
           <Route path="/information/uniform" element={<Uniform />} />
 
 

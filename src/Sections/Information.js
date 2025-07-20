@@ -33,7 +33,7 @@ const InformationData = [
     icon: <BsBusFront size={26} />,
     iconBg: "bg-yellow-200",
     iconColor: "text-yellow-800",
-    path: "/essentials/transport",
+    path: "/information/transport",
   },
   {
     title: "Academic Calendar",
@@ -45,21 +45,12 @@ const InformationData = [
     path: "/information/calendar",
   },
   {
-    title: "School Timings",
-    description:
-      "Class schedules, break timings, and office hours for different grade levels.",
-    icon: <LuClock size={26} />,
-    iconBg: "bg-indigo-200",
-    iconColor: "text-indigo-800",
-    path: "/information/timings",
-  },
-  {
     title: "Campus",
     description: "Explore locations of classrooms, facilities, and more.",
     icon: <MdLocationPin size={26} />,
     iconBg: "bg-orange-200",
     iconColor: "text-orange-800",
-    path: "/information/campus-map",
+    path: "/information/campus-info",
   },
   {
     title: "Faculty",

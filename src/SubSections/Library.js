@@ -12,58 +12,59 @@ const features = [
   {
     icon: <FaSchool className="text-3xl" />,
     bg: "bg-blue-100",
-    text: "Extensive Collection and Powerful Search Capabilities",
-    img: "/images/library.jpg",
+    text: "Wide Collection of Books",
+    img: "/images/lib1.jpg",
   },
   {
     icon: <RiBookShelfFill className="text-orange-500 text-3xl" />,
     bg: "bg-orange-100",
-    text: "Cost-Effective and Sustainable",
-    img: "/images/library.jpg",
+    text: "Dedicated reading area",
+    img: "/images/lib2.jpg",
   },
   {
     icon: <GiSchoolBag className="text-3xl" />,
     bg: "bg-purple-100",
-    text: "Multiple Accesses",
-    img: "/images/library.jpg",
+    text: "Weekly library periods",
+    img: "/images/lib6.jpg",
   },
   {
     icon: <TfiWrite className="text-green-600 text-2xl" />,
     bg: "bg-green-100",
-    text: "24×7 Availability",
-    img: "/images/library.jpg",
+    text: "Interactive Storytelling & Reading Sessions",
+    img: "/images/lib3.jpg",
   },
   {
     icon: <IoSchool className="text-pink-500 text-3xl" />,
     bg: "bg-pink-100",
-    text: "Community Forums",
-    img: "/images/library.jpg",
+    text: "Library Club Activities",
+    img: "/images/lib4.jpg",
   },
   {
     icon: <RiSchoolLine className="text-yellow-600 text-3xl" />,
     bg: "bg-yellow-100",
-    text: "Portability, Convenience, and Access",
-    img: "/images/library.jpg",
+    text: "Multilingual Book Collection",
+    img: "/images/lib5.jpg",
   },
 ];
 
 const SchoolLibrary = () => {
   return (
     <section className="relative  py-16 px-6 md:px-20 font-[Lato]">
-      {/* Navigation Arrows */}
-      <Link
-        to="/academics/chemistry-lab"
-        className="hidden md:flex items-center justify-center absolute left-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-[#1e2a50] hover:text-white text-black p-3 rounded-full shadow-lg transition"
-      >
-        <FaArrowLeft />
-      </Link>
+     {/* Navigation Arrows */}
+<Link
+  to="/academics/chemistry-lab"
+  className="hidden md:flex items-center justify-center fixed left-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-[#1e2a50] hover:text-white text-black p-3 rounded-full shadow-lg transition z-50"
+>
+  <FaArrowLeft />
+</Link>
 
-      <Link
-        to="/academics/physics-lab"
-        className="hidden md:flex items-center justify-center absolute right-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-[#1e2a50] hover:text-white text-black p-3 rounded-full shadow-lg transition"
-      >
-        <FaArrowRight />
-      </Link>
+<Link
+  to="/academics/physics-lab"
+  className="hidden md:flex items-center justify-center fixed right-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-[#1e2a50] hover:text-white text-black p-3 rounded-full shadow-lg transition z-50"
+>
+  <FaArrowRight />
+</Link>
+
 
       {/* Header */}
       <div className="mb-10">
@@ -85,7 +86,7 @@ const SchoolLibrary = () => {
           <div
             key={idx}
             className={`relative z-10 flex items-center gap-4 ${
-              idx % 2 === 0 ? "md:justify-start" : "md:justify-start md:ml-auto"
+              idx % 2 === 0 ? "md:justify-start" : "md:justify-start "
             }`}
           >
             

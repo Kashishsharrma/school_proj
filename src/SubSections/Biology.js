@@ -6,7 +6,7 @@ const BiologyLab = () => {
   return (
     <section
       className="relative py-16 px-6 md:px-20 font-[Lato] bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('/images/bio.jpg')" }}
+    
     >
       {/* Main Content Box */}
       <div className="bg-white mt-8 bg-opacity-60 backdrop-blur-sm p-8 rounded-lg shadow-xl">
