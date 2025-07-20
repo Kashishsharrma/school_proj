@@ -1,53 +1,90 @@
 import React from "react";
-import { motion } from "framer-motion";
-import { SlChemistry } from "react-icons/sl";
+import { Link } from "react-router-dom";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const ChemistryLab = () => {
   return (
-    <motion.div
-      initial={{ opacity: 0, x: -50 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      viewport={{ once: false }}
-      className="flex flex-col md:flex-row items-center justify-between shadow-lg p-6 md:p-10 gap-6 w-full bg-white"
+    <section
+      className="relative min-h-screen bg-cover bg-center py-16 px-6 md:px-20 font-[Lato]"
+      style={{
+        backgroundImage: "url('/images/chemistry.jpg')",
+      }}
     >
-      {/* Left Side: Content */}
-      <div className="flex-1 text-center mt-[100px] md:text-left">
-        <div className="flex items-center justify-center md:justify-start mb-4">
-          <SlChemistry className="w-16 h-16 md:w-20 md:h-20 text-[#8D3C44]" />
-        </div>
-        <h2 className="text-2xl md:text-3xl font-semibold mb-2">Chemistry Lab</h2>
-        <p className="text-lg font-medium text-gray-700">
-          Hands-on experiments and scientific exploration
-        </p>
-        <p className="mt-4 text-base text-gray-600 leading-relaxed">
-          The Chemistry Lab at <strong>Galaxy Star Public School</strong> provides students with a 
-          hands-on environment for exploring chemical reactions and scientific principles. 
-          Equipped with modern apparatus and safety gear, the lab encourages young scientists 
-          to conduct experiments and deepen their understanding of chemistry.
-        </p>
-        <p className="mt-4 text-base text-gray-600 leading-relaxed">
-          Experienced instructors guide students through engaging practical sessions, fostering 
-          curiosity and critical thinking. The lab is a space where theory meets practice, allowing 
-          students to observe real-world applications of their studies.
-        </p>
+      {/* Back Button and Heading */}
+      <div className="mb-10">
+        <Link
+          to="/academics"
+          className="text-lg text-white mt-2 font-[500] inline-block mb-2"
+        >
+          &lt; Back
+        </Link>
+        <h2 className="text-3xl font-[500] text-white">Chemistry Lab</h2>
       </div>
 
-      {/* Right Side: Image */}
-      <motion.div
-        initial={{ opacity: 0, x: 50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-        viewport={{ once: false }}
-        className="flex-1"
+      {/* Left Arrow */}
+      <Link
+        to="/academics/biology-lab"
+        className="fixed z-50 left-2 top-1/2 -translate-y-1/2 bg-white text-black p-2 md:p-3 rounded-full shadow-md hover:bg-[#1e2a50] hover:text-white transition-all duration-300"
       >
-        <img
-          src="/images/chemistry-lab.jpg"
-          alt="Chemistry Lab"
-          className="w-full max-w-sm md:max-w-md lg:max-w-lg rounded-lg shadow-md object-cover"
-        />
-      </motion.div>
-    </motion.div>
+        <FaArrowLeft className="w-4 h-4 md:w-5 md:h-5" />
+      </Link>
+
+      {/* Right Arrow */}
+      <Link
+        to="/academics/library"
+        className="fixed z-50 right-2 top-1/2 -translate-y-1/2 bg-white text-black p-2 md:p-3 rounded-full shadow-md hover:bg-[#1e2a50] hover:text-white transition-all duration-300"
+      >
+        <FaArrowRight className="w-4 h-4 md:w-5 md:h-5" />
+      </Link>
+
+      {/* Cards */}
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-12">
+        {/* Card 1 */}
+        <div className="bg-white rounded-xl shadow-xl p-6 text-center flex flex-col justify-start hover:scale-105 transition-transform duration-300 min-h-[400px]">
+          <img
+            src="/images/chemistry-lab.jpg"
+            alt="Organic Chemistry"
+            className="w-full h-52 object-cover rounded-lg"
+          />
+          <div className="mt-4">
+            <h3 className="text-xl font-semibold text-[#1e2a50]">Organic Chemistry</h3>
+            <p className="text-sm text-gray-600 mt-2">
+              Explore carbon compounds, reactions, mechanisms, and hands-on organic experiments in our modern lab setup.
+            </p>
+          </div>
+        </div>
+
+        {/* Card 2 */}
+        <div className="bg-white rounded-xl shadow-xl p-6 text-center flex flex-col justify-start hover:scale-105 transition-transform duration-300 min-h-[400px]">
+          <img
+            src="/images/bio.jpg"
+            alt="Inorganic Chemistry"
+            className="w-full h-52 object-cover rounded-lg"
+          />
+          <div className="mt-4">
+            <h3 className="text-xl font-semibold text-[#1e2a50]">Inorganic Chemistry</h3>
+            <p className="text-sm text-gray-600 mt-2">
+              Learn about elements, salts, metals, and conduct color reaction experiments to understand the periodic trends.
+            </p>
+          </div>
+        </div>
+
+        {/* Card 3 */}
+        <div className="bg-white rounded-xl shadow-xl p-6 text-center flex flex-col justify-start hover:scale-105 transition-transform duration-300 min-h-[400px]">
+          <img
+            src="/images/learn.png"
+            alt="Physical Chemistry"
+            className="w-full h-52 object-cover rounded-lg"
+          />
+          <div className="mt-4">
+            <h3 className="text-xl font-semibold text-[#1e2a50]">Physical Chemistry</h3>
+            <p className="text-sm text-gray-600 mt-2">
+              Dive into concepts like kinetics, thermodynamics, and conduct lab-based evaluations to reinforce theoretical principles.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 

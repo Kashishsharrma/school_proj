@@ -29,7 +29,7 @@ const Campus = () => {
           Live, learn and grow with Galaxy Star Public School.
         </p>
         <Link to="/gallery">
-          <button className="border border-black bg-white text-black px-6 py-2 rounded-full text-lg font-medium mt-8 hover:bg-[#262186] hover:text-white transition-all duration-300">
+          <button className="border-[3px] border-[#1e2a50] bg-white text-[#1e2a50] font-[700] px-6 py-2 rounded-full text-lg font-medium mt-8 hover:bg-[#1e2a50] hover:text-white transition-all duration-300">
             See More
           </button>
         </Link>

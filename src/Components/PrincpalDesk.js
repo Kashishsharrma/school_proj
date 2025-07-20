@@ -15,7 +15,7 @@ const PrincipalDesk = () => {
           viewport={{ once: true }}
           className="relative"
         >
-          <div className="overflow-hidden rounded-md transition-transform duration-500 hover:scale-105">
+          <div className="overflow-hidden rounded-md transition-transform duration-500 ">
             <img
               src="/images/principal desk.jpg"
               alt="Principal"
@@ -32,10 +32,10 @@ const PrincipalDesk = () => {
           viewport={{ once: true }}
           className="text-gray-800 font-[Lato]"
         >
-          <div className="relative bg-gradient-to-tr from-blue-400 to-blue-900 p-1 rounded-xl shadow-lg">
+          <div className="relative bg-gradient-to-tr from-blue-600 to-[#1e2a50] p-1 rounded-xl shadow-lg">
             {/* Floating Icon (Crown icon as sample) */}
             <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 z-10">
-              <div className="bg-gradient-to-tr from-blue-400 to-blue-900 p-4 rounded-full">
+              <div className="bg-gradient-to-tr from-blue-600 to-[#1e2a50] p-4 rounded-full">
                <FaGraduationCap className="text-white w-6 h-6" />
 
               </div>

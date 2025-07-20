@@ -1,5 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+
 import { PiBooks, PiStudentFill } from "react-icons/pi";
 import { BsBusFront } from "react-icons/bs";
 import { MdCalendarMonth, MdCreditCard, MdLocationPin } from "react-icons/md";
@@ -11,26 +13,26 @@ const InformationData = [
     description:
       "Complete list of prescribed textbooks and reference materials for all classes.",
     icon: <PiBooks size={26} />,
-    iconBg: "bg-[#e9f0fe]",
-    iconColor: "text-[#2563eb]",
-    path: "/essentials/books",
+    iconBg: "bg-blue-200",
+    iconColor: "text-blue-800",
+    path: "/information/books",
   },
   {
     title: "School Uniform",
     description:
       "Official uniform guidelines, dress code, and approved suppliers information.",
     icon: <PiStudentFill size={26} />,
-    iconBg: "bg-[#e6f6ec]",
-    iconColor: "text-[#16a34a]",
-    path: "/essentials/uniform",
+    iconBg: "bg-green-200",
+    iconColor: "text-green-800",
+    path: "/information/uniform",
   },
   {
     title: "School Transport",
     description:
       "Bus routes, timings, transport fees, and safety guidelines for school transportation.",
     icon: <BsBusFront size={26} />,
-    iconBg: "bg-[#f3f4f6]",
-    iconColor: "text-[#b45309]",
+    iconBg: "bg-yellow-200",
+    iconColor: "text-yellow-800",
     path: "/essentials/transport",
   },
   {
@@ -38,27 +40,35 @@ const InformationData = [
     description:
       "Important dates, holidays, examination schedules, and academic year planning.",
     icon: <MdCalendarMonth size={26} />,
-    iconBg: "bg-[#f3ecfc]",
-    iconColor: "text-[#7c3aed]",
-    path: "/essentials/calendar",
+    iconBg: "bg-purple-200",
+    iconColor: "text-purple-800",
+    path: "/information/calendar",
   },
   {
     title: "School Timings",
     description:
       "Class schedules, break timings, and office hours for different grade levels.",
     icon: <LuClock size={26} />,
-    iconBg: "bg-[#f3ecfc]",
-    iconColor: "text-[#7c3aed]",
-    path: "/essentials/timings",
+    iconBg: "bg-indigo-200",
+    iconColor: "text-indigo-800",
+    path: "/information/timings",
   },
   {
     title: "Campus",
-    description:
-      "Explore locations of classrooms, facilities, and more.",
+    description: "Explore locations of classrooms, facilities, and more.",
     icon: <MdLocationPin size={26} />,
-    iconBg: "bg-[#fef6e7]",
-    iconColor: "text-[#ea580c]",
-    path: "/essentials/campus-map",
+    iconBg: "bg-orange-200",
+    iconColor: "text-orange-800",
+    path: "/information/campus-map",
+  },
+  {
+    title: "Faculty",
+    description:
+      "Meet our experienced and passionate teaching staff committed to excellence.",
+    icon: <MdCreditCard size={26} />,
+    iconBg: "bg-pink-200",
+    iconColor: "text-pink-800",
+    path: "/information/faculty",
   },
 ];
 
@@ -66,40 +76,53 @@ const Information = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="w-full px-6 md:px-20 py-16 bg-white mt-[70px]">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <motion.div
+      initial={{ opacity: 0, y: 50 }}      
+      animate={{ opacity: 1, y: 0 }}        
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="px-4 py-12"               
+    >
+    <div className="w-full min-h-screen px-6 md:px-20 py-16 bg-white">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {InformationData.map((item, index) => (
           <div
             key={index}
-            className="border rounded-xl p-6 text-center bg-white hover:shadow-md transition cursor-pointer"
             onClick={() => navigate(item.path)}
+            className="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition cursor-pointer"
           >
             {/* Icon */}
-            <div
-              className={`w-16 h-16 mx-auto mb-5 flex items-center justify-center rounded-full ${item.iconBg}`}
-            >
-              <span className={`${item.iconColor}`}>{item.icon}</span>
+            <div className="flex justify-center mb-4">
+              <div
+                className={`w-16 h-16 flex items-center justify-center rounded-full ${item.iconBg}`}
+              >
+                <div className={`text-3xl ${item.iconColor}`}>{item.icon}</div>
+              </div>
             </div>
 
             {/* Title */}
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">
+            <h3 className="text-xl font-[500] text-center text-black mb-2">
               {item.title}
             </h3>
 
             {/* Description */}
-            <p className="text-sm text-gray-600 mb-4">{item.description}</p>
+            <p className="text-black text-sm text-center mb-4">
+              {item.description}
+            </p>
 
-            {/* Learn more button */}
-            <button
-              className="border rounded-md px-4 py-2 text-sm font-medium text-gray-900 
-              border-gray-300 hover:bg-gray-100 flex items-center justify-center gap-1 mx-auto"
-            >
-              Learn more <span aria-hidden="true">→</span>
-            </button>
+            {/* Button */}
+            <div className="text-center">
+              <button
+                onClick={() => navigate(item.path)}
+                className="text-sm font-semibold text-black hover:text-indigo-700 transition flex items-center gap-1 mx-auto"
+              >
+                Learn more <span className="text-lg">→</span>
+              </button>
+            </div>
           </div>
         ))}
       </div>
     </div>
+    </motion.div>
   );
 };
 

@@ -1,49 +1,64 @@
 import React from "react";
-import { motion } from "framer-motion";
-import { FaComputer } from "react-icons/fa6";
+import { Link } from "react-router-dom";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const ComputerLab = () => {
   return (
-    <motion.div
-      initial={{ opacity: 0, x: -50 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      viewport={{ once: false }}
-      className="flex flex-col md:flex-row items-center justify-between shadow-lg p-6 md:p-10 gap-6 w-full bg-white"
-    >
-      {/* Left Side: Content */}
-      <div className="flex-1 text-center mt-[100px] md:text-left">
-        <div className="flex items-center justify-center md:justify-start mb-4">
-          <FaComputer className="w-16 h-16 md:w-20 md:h-20 text-[#8D3C44]" />
-        </div>
-        <h2 className="text-2xl md:text-3xl font-semibold mb-2">Computer Lab</h2>
-        <p className="text-lg font-medium text-gray-700">
-          Hands-on experiments and scientific exploration
-        </p>
-        <p className="mt-4 text-base text-gray-600 leading-relaxed">
-       The computer lab at Galaxy Star Public School is a modern, tech-enhanced space designed to foster digital literacy and innovation. Equipped with the latest hardware and software, it provides students with hands-on experience in coding, graphic design, and multimedia projects. Our lab supports a dynamic curriculum that encourages problem-solving and creativity through technology.        </p>
+    <section className="relative bg-white py-16 px-6 md:px-20 font-[Lato]">
+      {/* Left Arrow to Sports Activities */}
+      <Link
+        to="/academics/sports"
+        className="hidden md:flex items-center justify-center absolute left-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-[#1e2a50] hover:text-white text-black p-3 rounded-full shadow-lg transition"
+      >
+        <FaArrowLeft />
+      </Link>
 
-        <p className="mt-4 text-base text-gray-600 leading-relaxed">
-        Guided by expert instructors, students gain essential skills to navigate the digital world confidently. The computer lab is not just a place for learning; it's a gateway to exploring new possibilities and preparing for future technological advancements. 
-        </p>
+      {/* Right Arrow to Smart Classes */}
+      <Link
+        to="/academics/smart-class"
+        className="hidden md:flex items-center justify-center absolute right-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-[#1e2a50] hover:text-white text-black p-3 rounded-full shadow-lg transition"
+      >
+        <FaArrowRight />
+      </Link>
+
+      {/* Header */}
+      <div className="mb-10">
+        <Link
+          to="/academics"
+          className="text-lg text-black mt-2 font-[500] inline-block mb-2"
+        >
+          &lt; Back
+        </Link>
+        <h2 className="text-3xl font-bold text-gray-800">Computer Lab</h2>
       </div>
 
-      {/* Right Side: Image */}
-      <motion.div
-        initial={{ opacity: 0, x: 50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-        viewport={{ once: false }}
-        className="flex-1"
-      >
-        <img
-          src="/images/chemistry-lab.jpg"
-          alt="Chemistry Lab"
-          className="w-full max-w-sm mt-[100px] md:max-w-md lg:max-w-lg rounded-lg shadow-md object-cover"
-        />
-      </motion.div>
-    </motion.div>
+      {/* Content */}
+      <div className="grid md:grid-cols-2 gap-10 items-start">
+        {/* Image */}
+        <div className="rounded-lg overflow-hidden shadow-lg">
+          <img
+            src="/images/biology-lab.jpg"
+            alt="Computer Lab"
+            className="w-full h-auto object-cover"
+          />
+        </div>
+
+        {/* Description */}
+        <div>
+          <p className="mb-4">
+            Our state-of-the-art computer lab is equipped with modern systems,
+            high-speed internet, and a variety of educational software to support
+            digital literacy and IT education.
+          </p>
+          <p className="mb-4">
+            Students from all grades are introduced to programming, internet safety,
+            and productivity tools as part of their curriculum.
+          </p>
+        </div>
+      </div>
+    </section>
   );
 };
 
 export default ComputerLab;
+

@@ -1,9 +1,10 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const Shaping = () => {
   return (
     <div
-      className="relative w-full h-[600px] mt-16 bg-cover bg-center flex items-center justify-center "
+      className="relative w-full h-[600px] mt-16 bg-cover bg-center flex items-center justify-center"
       style={{
         backgroundImage: "url('/images/shaping.jpg')",
       }}
@@ -13,7 +14,7 @@ const Shaping = () => {
         className="w-[90%] max-w-4xl"
         preserveAspectRatio="xMidYMid meet"
       >
-        <text
+        <motion.text
           x="50%"
           y="40%"
           dominantBaseline="middle"
@@ -22,10 +23,15 @@ const Shaping = () => {
           fontSize="56"
           fontWeight="700"
           fill="white"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true, amount: 0.6 }}
         >
           Shaping bright minds
-        </text>
-        <text
+        </motion.text>
+
+        <motion.text
           x="50%"
           y="70%"
           dominantBaseline="middle"
@@ -34,9 +40,13 @@ const Shaping = () => {
           fontSize="56"
           fontWeight="700"
           fill="white"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.3 }}
+          viewport={{ once: true, amount: 0.6 }}
         >
           for a brighter future
-        </text>
+        </motion.text>
       </svg>
     </div>
   );

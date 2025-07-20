@@ -1,81 +1,111 @@
 import React from "react";
-import { motion } from "framer-motion";
-import { GiPlantSeed } from "react-icons/gi";
+import { Link } from "react-router-dom";
+import { FaArrowRight } from "react-icons/fa";
 
 const BiologyLab = () => {
   return (
-    <motion.div
-      initial={{ opacity: 0, x: -50 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      viewport={{ once: false }}
-      className="flex flex-col md:flex-row items-start p-6 md:p-10 gap-6 w-full bg-white mt-[100px] md:mt-0"
+    <section
+      className="relative py-16 px-6 md:px-20 font-[Lato] bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: "url('/images/bio.jpg')" }}
     >
-      {/* Left Side: Content */}
-      <div className="flex-1 mt-[80px] text-left">
-        <div className="flex items-center mb-4">
-          <GiPlantSeed className="w-16 h-16 md:w-20 md:h-20 text-[#8D3C44]" />
+      {/* Main Content Box */}
+      <div className="bg-white mt-8 bg-opacity-60 backdrop-blur-sm p-8 rounded-lg shadow-xl">
+        {/* Back Link and Title */}
+        <div className="mb-10">
+          <Link
+            to="/academics"
+            className="text-lg text-black mt-2 font-[700] inline-block mb-2"
+          >
+            &lt; Back
+          </Link>
+          <h2 className="text-3xl font-[700] text-gray-800">Biology Lab</h2>
         </div>
-        <h2 className="text-2xl md:text-3xl font-semibold mb-2">Biology Lab</h2>
-        <p className="text-lg font-medium text-gray-700">
-          Hands-on experiments and scientific exploration
-        </p>
-        <p className="mt-4 text-base text-gray-600 leading-relaxed">
-          The Biology Lab at Galaxy Star Public School offers a dynamic environment for students to explore the wonders of living organisms. Equipped with modern tools and specimens, the lab encourages hands-on learning and scientific inquiry.
-        </p>
-        <p className="mt-4 text-base text-gray-600 leading-relaxed">
-          Students can conduct experiments to understand cellular processes, genetics, and ecological interactions. Guided by experienced instructors, they gain practical knowledge and develop critical thinking skills. The lab is designed to foster curiosity and a deeper appreciation for the life sciences.
-        </p>
 
-        {/* Features Section */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }} 
-          whileInView={{ opacity: 1, y: 0 }} 
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
-          className="mt-6"
-        >
-          <h3 className="text-2xl font-semibold mb-3 text-[#8D3C44]">Lab Highlights:</h3>
-          <ul className="list-disc ml-6 text-lg text-gray-700">
-            <li>Modern microscopes for cellular studies</li>
-            <li>Preserved specimens for anatomical exploration</li>
-            <li>DNA extraction & genetics experiments</li>
-            <li>Eco-system models and plant samples</li>
-            <li>Guidance from expert biology instructors</li>
-          </ul>
-        </motion.div>
+        {/* Content Grid */}
+        <div className="grid md:grid-cols-2 gap-10 items-start font-[700]">
+          {/* Image */}
+          <div className="rounded-lg overflow-hidden shadow-lg">
+            <img
+              src="/images/chemistry-lab.jpg"
+              alt="Biology Lab"
+              className="w-full h-auto object-cover"
+            />
+          </div>
+
+          {/* Text */}
+          <div>
+            <p className="mb-4">
+              Our Biology Lab is a vibrant space designed for young scientists to
+              explore life sciences in depth. Equipped with high-quality
+              microscopes, models, and anatomical charts, students perform hands-on
+              experiments to observe cells, tissues, and living organisms.
+            </p>
+            <p className="mb-4">
+              The lab supports curriculum-based learning as well as independent
+              exploration under the supervision of experienced faculty. With a
+              focus on safety and curiosity, our lab fosters scientific thinking
+              and practical understanding of biology concepts.
+            </p>
+          </div>
+        </div>
       </div>
 
-      {/* Right Side: Image + Did You Know Fact (Aligned) */}
-      <div className="flex-1 mt-[180px] flex flex-col items-center md:items-end">
-        {/* Image */}
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-          viewport={{ once: false }}
-          className="w-full max-w-md md:max-w-lg lg:max-w-xl"
-        >
-          <img
-            src="/images/biology-lab.jpg"
-            alt="Biology Lab"
-            className="w-full h-auto rounded-lg shadow-md object-cover"
-          />
-        </motion.div>
+      {/* Additional Cards Section */}
+<div className="mt-16 grid md:grid-cols-3 gap-8">
+  {/* Card 1 */}
+  <div className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
+    <div className="h-[300px] overflow-hidden">
+      <img
+        src="/images/micro.png"
+        alt="Microscope Work"
+        className="w-full h-full object-cover"
+      />
+    </div>
+    <div className="p-3 text-center">
+      <h3 className="text-lg font-semibold">Microscopic Studies</h3>
+    </div>
+  </div>
 
-        {/* Fun Fact Box (Aligned to Image) */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.8 }} 
-          whileInView={{ opacity: 1, scale: 1 }} 
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
-          className="mt-6 w-full max-w-md md:max-w-lg lg:max-w-xl p-4 bg-[#fce8e9] border-l-4 border-[#8D3C44] rounded-lg shadow-md"
-        >
-          <h3 className="text-xl font-semibold text-[#8D3C44]">Did You Know?</h3>
-          <p className="text-lg text-gray-700 mt-2">
-            The human body contains about <strong>37.2 trillion cells</strong> – and your biology lab experiments help uncover their mysteries!
-          </p>
-        </motion.div>
-      </div>
-    </motion.div>
+  {/* Card 2 */}
+  <div className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
+    <div className="h-[300px] overflow-hidden">
+      <img
+        src="/images/anatomy.png"
+        alt="Anatomy Practice"
+        className="w-full h-full object-cover"
+      />
+    </div>
+    <div className="p-3 text-center">
+      <h3 className="text-lg font-semibold">Human Anatomy</h3>
+    </div>
+  </div>
+
+  {/* Card 3 */}
+  <div className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
+    <div className="h-[300px] overflow-hidden">
+      <img
+        src="/images/learn.png"
+        alt="Dissection"
+        className="w-full h-full object-cover"
+      />
+    </div>
+    <div className="p-3 text-center">
+      <h3 className="text-lg font-semibold">Hands-On Learning</h3>
+    </div>
+  </div>
+</div>
+
+
+  {/* Right Arrow Navigation*/}
+<Link
+  to="/academics/chemistry-lab"
+  className="flex items-center justify-center fixed right-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-[#1e2a50] hover:text-white text-black p-2 sm:p-3 rounded-full shadow-lg transition z-50 text-sm sm:text-base"
+>
+  <FaArrowRight className="text-lg sm:text-xl" />
+</Link>
+
+
+    </section>
   );
 };
 

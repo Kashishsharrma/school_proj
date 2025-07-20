@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { IoIosCloseCircleOutline } from "react-icons/io";
+import { IoIosClose } from "react-icons/io";
 
 const imageUrls = [
   "/images/GALLERY WEB 1.jpg",
@@ -17,70 +17,54 @@ const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   return (
-    <div className="w-full min-h-screen flex flex-col items-start justify-center px-8 py-10">
-      {/* Heading Section with Animation */}
-      <motion.h1 
-        initial={{ opacity: 0, y: 50 }} 
-        whileInView={{ opacity: 1, y: 0 }} 
-        transition={{ duration: 0.8, ease: "easeOut" }} 
-        viewport={{ once: false }}
-        className="text-6xl font-bold mt-[80px] mb-8 tracking-widest text-center w-full"
-      >
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="w-full min-h-screen px-6 py-12 bg-white"
+    >
+      {/* Heading */}
+      <h1 className="text-6xl mt-[40px] font-bold mb-10  text-[#1e2a50] font-[500] text-left">
         GALLERY
-      </motion.h1>
+      </h1>
 
-      {/* Image Grid with Animation */}
-      <motion.div 
-        initial={{ opacity: 0, y: 50 }} 
-        whileInView={{ opacity: 1, y: 0 }} 
-        transition={{ duration: 0.8, ease: "easeOut", staggerChildren: 0.2 }}
-        viewport={{ once: false }}
-        className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 w-full"
-      >
+      {/* Image Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4 gap-6">
         {imageUrls.map((src, index) => (
-          <motion.div 
-            key={index} 
-            initial={{ opacity: 0, scale: 0.9 }} 
-            whileInView={{ opacity: 1, scale: 1 }} 
-            transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.1 }}
-            viewport={{ once: false }}
-            className="overflow-hidden cursor-pointer"
-          >
-            <img
-              src={src}
-              alt={`Gallery ${index + 1}`}
-              className="w-full h-56 md:h-64 object-cover rounded-lg transition-transform duration-300 hover:scale-105"
-              onClick={() => setSelectedImage(src)}
-            />
-          </motion.div>
+          <img
+            key={index}
+            src={src}
+            alt={`Gallery ${index + 1}`}
+            className="w-full h-56 md:h-64 object-cover rounded-sm transition-transform duration-300 hover:scale-105 cursor-pointer"
+            onClick={() => setSelectedImage(src)}
+          />
         ))}
-      </motion.div>
+      </div>
 
-      {/* Modal for Enlarged Image with Animation */}
+      {/* Modal for Enlarged Image */}
       {selectedImage && (
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.8 }} 
-          animate={{ opacity: 1, scale: 1 }} 
-          exit={{ opacity: 0, scale: 0.8 }} 
-          transition={{ duration: 0.5, ease: "easeOut" }} 
-          className="fixed inset-0 flex items-center justify-center bg-white bg-opacity-80 z-50 p-4"
-        >
-          <div className="relative bg-white rounded-lg shadow-lg p-4 max-w-[60vw] max-h-[70vh] flex items-center justify-center">
+        <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+          <motion.div
+            initial={{ scale: 0.7, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.3 }}
+            className="relative rounded-sm shadow-lg px-4 max-w-[90vw] max-h-[70vh] flex items-center justify-center"
+          >
             {/* Close Button */}
-            <IoIosCloseCircleOutline
-              className="absolute top-3 right-3 text-3xl text-gray-800 cursor-pointer hover:text-red-500 transition"
+            <IoIosClose
+              className="absolute top-[-9px] left-1 text-3xl text-black rounded-full bg-white font-[500] cursor-pointer hover:bg-red-600 hover:font-[500] hover:text-white transition"
               onClick={() => setSelectedImage(null)}
             />
-            {/* Image Display (Preserves Aspect Ratio, Opens Smaller) */}
+            {/* Enlarged Image */}
             <img
               src={selectedImage}
               alt="Selected"
-              className="max-w-[50vw] max-h-[50vh] object-contain rounded-lg"
+              className="max-w-full max-h-[70vh] object-contain rounded-sm"
             />
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       )}
-    </div>
+    </motion.div>
   );
 };
 

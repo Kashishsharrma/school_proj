@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ScrollToTop from "./Components/ScrollToTop"; 
 import Navbar from "./Components/Navbar";
 import Display from "./Components/Display";
 import PrincipalDesk from "./Components/PrincpalDesk";
@@ -21,14 +22,26 @@ import BiologyLab from "./SubSections/Biology";
 import ComputerLab from "./SubSections/Computer";
 import PhysicsLab from "./SubSections/Physics";
 import MusicRoom from "./SubSections/Music";
-import PrayerRoom from "./SubSections/Prayer";
+import Sports from "./SubSections/Sports";
 import Library from "./SubSections/Library";
 import SmartClass from "./SubSections/Smart";
+
+// Subsections inside Information
+import Books from "./InformationData/Books";
+import Campusinfo from "./InformationData/Campusinfo";
+import Faculty from "./InformationData/Faculty";
+import Fee from "./InformationData/Fee";
+import Timing from "./InformationData/Timing";
+import Transport from "./InformationData/Transport";
+import Uniform from "./InformationData/Uniform";
+
+
 
 function App() {
   return (
     <Router>
       <Navbar />
+         <ScrollToTop />
       <Routes>
         <Route
           path="/"
@@ -48,18 +61,30 @@ function App() {
 
         {/* Academics Section */}
         <Route path="/academics" element={<Academics />} />
-        <Route path="/academics/chemistry-lab" element={<ChemistryLab />} />
-        <Route path="/academics/biology-lab" element={<BiologyLab />} />
-        <Route path="/academics/computer-lab" element={<ComputerLab />} />
-        <Route path="/academics/physics-lab" element={<PhysicsLab />} />
-        <Route path="/academics/music-room" element={<MusicRoom />} />
-        <Route path="/academics/prayer-room" element={<PrayerRoom />} />
-        <Route path="/academics/library" element={<Library />} />
-        <Route path="/academics/smart-class" element={<SmartClass />} />
+          <Route path="/academics/chemistry-lab" element={<ChemistryLab />} />
+          <Route path="/academics/biology-lab" element={<BiologyLab />} />
+          <Route path="/academics/computer-lab" element={<ComputerLab />} />
+          <Route path="/academics/physics-lab" element={<PhysicsLab />} />
+          <Route path="/academics/music-room" element={<MusicRoom />} />
+          <Route path="/academics/sports" element={<Sports />} />
+          <Route path="/academics/library" element={<Library />} />
+          <Route path="/academics/smart-class" element={<SmartClass />} />
 
         {/* Other Sections */}
         <Route path="/gallery" element={<Gallery />} />
+
+        {/* Information section */}
         <Route path="/information" element={<Information />} />
+          <Route path="/information/books" element={<Books />} />
+          <Route path="/information/campus-info" element={<Campusinfo />} />
+          <Route path="/information/faculty" element={<Faculty />} />
+          <Route path="/information/timing" element={<Timing />} />
+          <Route path="/information/transport" element={<Transport />} />
+          <Route path="/information/fee" element={<Fee />} />
+          <Route path="/information/uniform" element={<Uniform />} />
+
+
+
         <Route path="/enroll" element={<Enroll />} />
       </Routes>
       <Footer />

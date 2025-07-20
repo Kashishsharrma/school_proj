@@ -1,52 +1,115 @@
 import React from "react";
-import { motion } from "framer-motion";
-import { IoLibraryOutline} from "react-icons/io5";
+import { Link } from "react-router-dom";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { GiSchoolBag } from "react-icons/gi";
+import { RiBookShelfFill, RiSchoolLine } from "react-icons/ri";
+import { TfiWrite } from "react-icons/tfi";
+import { IoSchool } from "react-icons/io5";
+import { FaSchool } from "react-icons/fa6";
 
-const Library = () => {
+
+const features = [
+  {
+    icon: <FaSchool className="text-3xl" />,
+    bg: "bg-blue-100",
+    text: "Extensive Collection and Powerful Search Capabilities",
+    img: "/images/library.jpg",
+  },
+  {
+    icon: <RiBookShelfFill className="text-orange-500 text-3xl" />,
+    bg: "bg-orange-100",
+    text: "Cost-Effective and Sustainable",
+    img: "/images/library.jpg",
+  },
+  {
+    icon: <GiSchoolBag className="text-3xl" />,
+    bg: "bg-purple-100",
+    text: "Multiple Accesses",
+    img: "/images/library.jpg",
+  },
+  {
+    icon: <TfiWrite className="text-green-600 text-2xl" />,
+    bg: "bg-green-100",
+    text: "24×7 Availability",
+    img: "/images/library.jpg",
+  },
+  {
+    icon: <IoSchool className="text-pink-500 text-3xl" />,
+    bg: "bg-pink-100",
+    text: "Community Forums",
+    img: "/images/library.jpg",
+  },
+  {
+    icon: <RiSchoolLine className="text-yellow-600 text-3xl" />,
+    bg: "bg-yellow-100",
+    text: "Portability, Convenience, and Access",
+    img: "/images/library.jpg",
+  },
+];
+
+const SchoolLibrary = () => {
   return (
-    <motion.div
-      initial={{ opacity: 0, x: -50 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      viewport={{ once: false }}
-      className="flex flex-col md:flex-row items-center justify-between shadow-lg p-6 md:p-10 gap-6 w-full bg-white"
-    >
-      {/* Left Side: Content */}
-      <div className="flex-1 text-center mt-[100px] md:text-left">
-        <div className="flex items-center justify-center md:justify-start mb-4">
-          <IoLibraryOutline className="w-16 h-16 md:w-20 md:h-20 text-[#8D3C44]" />
-        </div>
-        <h2 className="text-2xl md:text-3xl font-semibold mb-2">School Library: A Universe of Knowledge
-        </h2>
-        <p className="text-lg font-medium text-gray-700">
-        Gateway to knowledge and endless imagination
+    <section className="relative  py-16 px-6 md:px-20 font-[Lato]">
+      {/* Navigation Arrows */}
+      <Link
+        to="/academics/chemistry-lab"
+        className="hidden md:flex items-center justify-center absolute left-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-[#1e2a50] hover:text-white text-black p-3 rounded-full shadow-lg transition"
+      >
+        <FaArrowLeft />
+      </Link>
 
-</p>
-        <p className="mt-4 text-base text-gray-600 leading-relaxed">
-        This space is a vibrant hub of learning, offering a vast collection of books, magazines, and digital resources. It provides a quiet space for students to read, research, and explore new topics, fostering a love for lifelong learning.
-           </p>
+      <Link
+        to="/academics/physics-lab"
+        className="hidden md:flex items-center justify-center absolute right-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-[#1e2a50] hover:text-white text-black p-3 rounded-full shadow-lg transition"
+      >
+        <FaArrowRight />
+      </Link>
 
-        <p className="mt-4 text-base text-gray-600 leading-relaxed">
-        With cozy reading corners and study areas, the library encourages curiosity and supports academic growth. It's a place where knowledge meets imagination.     
-        </p>
+      {/* Header */}
+      <div className="mb-10">
+        <Link
+          to="/academics"
+          className="text-lg text-black mt-2 font-[500] inline-block mb-2"
+        >
+          &lt; Back
+        </Link>
+        <h2 className="text-3xl font-bold text-gray-800">School Library</h2>
       </div>
 
-      {/* Right Side: Image */}
-      <motion.div
-        initial={{ opacity: 0, x: 50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-        viewport={{ once: false }}
-        className="flex-1"
-      >
-        <img
-          src="/images/library.jpg"
-          alt="Chemistry Lab"
-          className="w-full max-w-sm md:max-w-md lg:max-w-lg rounded-lg shadow-md object-cover"
-        />
-      </motion.div>
-    </motion.div>
+      {/* Feature Grid */}
+      <div className="relative grid grid-cols-1 md:grid-cols-2 gap-y-14 gap-x-10">
+        {/* Vertical Line */}
+        <div className="hidden md:block absolute top-0 left-1/2 transform -translate-x-1/2 h-full w-0.5 border-l-2 border-dashed border-black z-0"></div>
+
+        {features.map((item, idx) => (
+          <div
+            key={idx}
+            className={`relative z-10 flex items-center gap-4 ${
+              idx % 2 === 0 ? "md:justify-start" : "md:justify-start md:ml-auto"
+            }`}
+          >
+            
+            {/* Image */}
+            <img
+              src={item.img}
+              alt="Feature Illustration"
+              className="w-24 h-24 object-contain"
+            />
+
+            {/* Icon + Text Block */}
+            <div className="max-w-xs flex items-center gap-4">
+              <div
+                className={`p-3 rounded-full flex items-center justify-center ${item.bg}`}
+              >
+                {item.icon}
+              </div>
+              <p className="text-gray-800 font-medium">{item.text}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 };
 
-export default Library;
+export default SchoolLibrary;
