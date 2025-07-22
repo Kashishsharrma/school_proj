@@ -1,10 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Shaping = () => {
   return (
     <div
-      className="relative w-full h-[600px] mt-16 bg-cover bg-center flex items-center justify-center"
+      className="relative w-full h-[600px] mt-16 bg-cover bg-center flex flex-col items-center justify-center gap-8"
       style={{
         backgroundImage: "url('/images/shaping.jpg')",
       }}
@@ -48,6 +49,20 @@ const Shaping = () => {
           for a brighter future
         </motion.text>
       </svg>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.6 }}
+        viewport={{ once: true, amount: 0.6 }}
+      >
+        <Link
+          to="/academics"
+          className="text-white font-semibold px-6 py-3 rounded-full bg-[#1e2a50] hover:bg-white hover:text-[#1e2a50] border-2 border-white transition font-[700] duration-300"
+        >
+          Explore Academics
+        </Link>
+      </motion.div>
     </div>
   );
 };
